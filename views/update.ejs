@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cambiar</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body>
+	<% include nav.ejs %>
+	<div class="container">
+		<% for (var i = 0; i < datos.length; i ++) { %>
+			<form class="form" action="/update" method="post">
+				<label>Name:</label>
+				<input type="text" name="name" class="form-control" value="<%= datos[i].name %>" requred>
+				<label>Slug:</label>
+				<input type="text" name="slug" class="form-control" value="<%= datos[i].slug %>" requred>
+				<label>Description:</label>
+				<textarea class="form-control" name="description" rows="3" requred>
+					<%= datos[i].description %>
+				</textarea>
+				<label>Color:</label>
+				<input type="text" name="color" class="form-control" value="<%= datos[i].color %>" requred>
+
+				<input type="hidden" name="id" value="<%= datos[i].id %>">
+				<button class="btn btn-success col-12" type="submit">Actualizar</button>
+			</form>
+	            
+	    <% } %>		
+	</div>
+
+	
+	
+</body>
+</html>
